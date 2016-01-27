@@ -46,5 +46,7 @@ public class SemaphoreApp {
         for (int i=0; i<10; i++)
             //new Thread(limitedCall).start();
             executor.submit(new Thread(limitedCall));
+
+        executor.shutdown();
     }
 }
