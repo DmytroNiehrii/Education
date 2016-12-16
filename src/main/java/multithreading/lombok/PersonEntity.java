@@ -1,4 +1,4 @@
-package lombok;
+package multithreading.lombok;
 
 /**
  * Created by dmitriyn on 5/24/16.
