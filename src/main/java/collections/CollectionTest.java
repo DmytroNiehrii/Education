@@ -13,6 +13,19 @@ public class CollectionTest {
 
 
     private void main(String[] args) {
-
+        collection.
     }
+
+    private void a1() {
+        arrayList.
+    }
+
+    private void a2() {
+        linkedList.
+    }
+
+    private void a3() {
+        set.
+    }
+
 }
