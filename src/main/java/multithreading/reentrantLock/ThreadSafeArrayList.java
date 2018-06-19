@@ -19,7 +19,7 @@ public class ThreadSafeArrayList<E> {
         try {
             i++;
             list.add(o);
-            System.out.println("Adding element by thread"+Thread.currentThread().getName());
+            System.out.println("Adding element by thread <"+Thread.currentThread().getName() + ">");
         } finally {
             lock.unlock();
         }
@@ -28,6 +28,7 @@ public class ThreadSafeArrayList<E> {
     public static void main(String[] args) {
 
         final ThreadSafeArrayList<String> lockExample = new ThreadSafeArrayList<String>();
+
         Runnable syncThread = new Runnable() {
 
             public void run() {

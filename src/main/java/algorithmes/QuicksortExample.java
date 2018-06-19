@@ -1,34 +1,30 @@
 package algorithmes;
 
-/**
- * Created by negriyd on 17.12.2016.
- */
 public class QuicksortExample {
-    private static int []a;
 
     public static void main(String[] args) {
         // Get a random generated array
-        a = getArray();
+        int[] a = getArray();
         // prints the given array
-        printArray();
+        printArray(a);
         // sort the array
-        sort();
+        sort(a);
         System.out.println("");
         //prints the sorted array
-        printArray();
+        printArray(a);
     }
 
     // This method sorts an array and internally calls quickSort
-    public static void sort(){
+    public static void sort(int[] a){
         int left = 0;
         int right = a.length-1;
 
-        quickSort(left, right);
+        quickSort(a, left, right);
     }
 
     // This method is used to sort the array using quicksort algorithm.
     // It takes the left and the right end of the array as the two cursors.
-    private static void quickSort(int left,int right){
+    private static void quickSort(int[] a, int left,int right){
         // If both cursor scanned the complete array quicksort exits
         if(left >= right)
         return;
@@ -36,15 +32,15 @@ public class QuicksortExample {
         // For the simplicity, we took the right most item of the array as a pivot
 
         int pivot = a[right];
-        int partition = partition(left, right, pivot);
+        int partition = partition(a, left, right, pivot);
 
         // Recursively, calls the quicksort with the different left and right parameters of the sub-array
-        quickSort(0, partition-1);
-        quickSort(partition+1, right);
+        quickSort(a,0, partition-1);
+        quickSort(a,partition+1, right);
     }
 
     // This method is used to partition the given array and returns the integer which points to the sorted pivot index
-    private static int partition(int left,int right,int pivot){
+    private static int partition(int[] a, int left,int right,int pivot){
         int leftCursor = left-1;
         int rightCursor = right;
 
@@ -57,23 +53,23 @@ public class QuicksortExample {
             if(leftCursor >= rightCursor){
                 break;
             }else{
-                swap(leftCursor, rightCursor);
+                swap(a, leftCursor, rightCursor);
             }
 
         }
 
-        swap(leftCursor, right);
+        swap(a, leftCursor, right);
         return leftCursor;
     }
 
     // This method is used to swap the values between the two given index
-    public static void swap(int left,int right){
+    public static void swap(int[] a, int left,int right){
         int temp = a[left];
         a[left] = a[right];
         a[right] = temp;
     }
 
-    public static void printArray(){
+    public static void printArray(int[] a){
         for(int i : a){
             System.out.print(i+" ");
         }
